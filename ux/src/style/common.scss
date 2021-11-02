@@ -1,0 +1,115 @@
+$colors: (
+  default: #535353,
+  default-dark: #3a3a3a,
+  default-light: #c0c0c0,
+  
+  active: #c277ff,
+  active-dark: #60097a,
+  active-light: #cb9eff,
+  active-very-light: #efd4ff
+);
+
+.common-button {
+  padding: 15px 30px;
+  border: 0;
+  border-radius: 25px;
+  color: #ffffff;
+  background-color: map-get($colors, default);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.25s ease-in, transform 50ms;
+
+
+  &:hover {
+    color: #ffffff;
+    background-color: map-get($colors, active);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 5px 10px rgba(0,0,0,0.22);
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+}
+
+.icon-button {
+  @extend .common-button;
+  height: 35px;
+  width: 35px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-button-small {
+  @extend .common-button;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  min-width: 35px;
+  min-height: 35px;
+  font-size:20px;
+
+  &:hover {
+    color: map-get($colors, active);
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  svg {
+    stroke: black;
+    stroke-width: 10px;
+  }
+}
+
+.text-button-small {
+  border: 0;
+  border-radius: 25px;
+  color: map-get($colors, default-light);
+  background-color: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.25s ease-in, transform 50ms;
+
+
+  &:hover {
+    color: map-get($colors, active);;
+    box-shadow: 3px 9px 11px -6px #000000;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+}
+
+.panel {
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  overflow-y: auto;
+  opacity: 0.9;
+  text-align: left;
+  margin: 0 auto;
+  width: 450px;
+  background-color: white;
+}
+
+// custom scroll-bar
+@mixin custom-scroll-bar() {
+  &::-webkit-scrollbar {
+    border-radius: 10px;
+    height: 10px;
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+}

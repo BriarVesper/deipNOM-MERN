@@ -1,0 +1,35 @@
+@import './common.scss';
+
+.panel-with-list {
+  @extend .panel;
+
+  .list {
+    @include custom-scroll-bar;
+    max-height: 315px;
+    overflow: auto;
+  }
+}
+
+#shopping-list {
+  @extend .panel-with-list;
+}
+
+#selected-recipe-list {
+  @extend .panel-with-list;
+  margin-top: 20px;
+
+  .list {
+    .selected-recipe-item {
+      margin-top: 5px;
+    }
+
+    button{ 
+      margin-right: 15px;
+      margin-left: 15px;
+    }
+
+    &:last-child {
+      padding-bottom: 15px;
+    }
+  }
+}

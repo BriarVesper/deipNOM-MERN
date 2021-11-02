@@ -1,0 +1,49 @@
+@import "common.scss";
+
+.main-container {
+  padding: 20px;
+  height: 100%;
+  color: black;
+  text-align: center;
+  background-color: map-get($colors, active-very-light);
+
+  #main-heading {
+    font-size: 50px;
+    font-weight: bold;
+    color: map-get($colors, active);
+    margin-bottom: 20px;
+  }
+
+  #main-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+#page-tab {
+  border-top: 1px solid map-get($colors, active-light);
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+
+  .tab-container {
+    flex: 1 1;
+    height: 100%;
+    padding-top: 13px;
+    background-color: map-get($colors, active-dark);
+    color: white;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+
+    &#recipe-tab {
+      border-right: 1px solid map-get($colors, active);
+    }
+
+    &.active {
+      background-color: map-get($colors, active);
+      cursor: default;
+    }
+  }
+}

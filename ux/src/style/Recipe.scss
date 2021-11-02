@@ -1,0 +1,119 @@
+@import './common.scss';
+
+#recipe-page {
+  @extend .panel;
+}
+
+#add-recipe {
+  .add-recipe-top-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
+  }
+
+  .add-recipe-btm-container {
+    button {
+      @extend .common-button;
+      margin-top: 10px;
+
+      &.cancel-button {
+        float: right;
+        &:hover {
+          background-color: map-get($colors, active-dark);
+        }
+      }
+    }
+  }
+
+  .add-recipe-thumbnail {
+    width: 95px;
+    height: 95px;
+    font-size: 30px;
+    background-color: map-get($colors, default-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.25s ease-in;
+    background-size: cover;
+    color: white;
+
+    &:hover {
+      color: map-get($colors, active-dark);
+      background-color: map-get($colors, active);
+    }
+  }
+
+  .add-recipe-input {
+      width: 100%;
+      padding: 7px 0 4px 0;
+      border: 0;
+      outline: 0;
+      font-size: 16px;
+      color: black;
+      background: transparent;
+
+    &.small-input {
+      width: 300px;
+      border-bottom: 2px solid map-get($colors, active);
+      display: inline-block;
+    }
+
+    &.big-input {
+      width: 100%;
+      resize: none;
+      border: 1px solid map-get($colors, active);
+      padding: 10px;
+    }
+  }
+}
+
+#recipe-list {
+  .list {
+    @include custom-scroll-bar;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    max-height: 200px;
+    overflow: auto;
+
+    .recipe-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1 0 35%;
+      
+      margin: 4px;
+      padding: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      background-color: map-get($colors, default-light);
+
+      color: white;
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.75);
+
+      .header {
+        display: flex;
+        justify-content:space-between;
+        border-bottom: 1px solid rgba(255,255,255,0.5);
+
+        .title {
+          font-size: 18px;
+          margin-bottom: 10px;
+          margin-right: 20px;
+        }
+      }
+
+      .middle {
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+
+      .footer {
+        padding-top: 8px;
+        border-top: 1px solid rgba(255,255,255,0.5);
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

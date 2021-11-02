@@ -1,0 +1,27 @@
+version: "1"
+services:
+  ux:
+    build: ./ux/
+    ports: 
+      - "3001:3001"
+    depends_on: 
+      - srv
+      - sass
+    volumes:
+      - ./ux/src/:/ux/src/
+    stdin_open: true
+  srv:
+    build: ./srv/
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    command: mongod --port 27018
+    ports:
+      - "27018:27018"
+  sass:
+    image: larryprice/sass
+    volumes:
+      - ./ux/src/style/:/src
