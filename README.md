@@ -16,8 +16,6 @@ deipNOM is a simple, one-page app divided into two sections: Recipes and Shoppin
     - Combine all like ingredients to display total amount needed for selected recipes
     - Allow the user to remove recipes from the list
 
-Everything is stored in localStorage, so there is an upper limit to how many recipe items can be saved at a time.
-
 #### Running locally
 In order to run deipNOM locally, you will require `docker` as well as a Cloudinary account. You also have to create an `.env` file. From the srv directory:
 
