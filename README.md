@@ -19,6 +19,12 @@ deipNOM is a simple, one-page app divided into two sections: Recipes and Shoppin
 Everything is stored in localStorage, so there is an upper limit to how many recipe items can be saved at a time.
 
 #### Running locally
-In order to run deipNOM locally, the only requirement should be `docker`:
+In order to run deipNOM locally, you will require `docker` as well as a Cloudinary account. You also have to create an `.env` file. From the srv directory:
 
-After cloning the repo, from the root, run `docker-compose up --build`.
+```
+$ cp .default.env .env
+$ nano .env
+Fill in the variables with your Cloudinary credentials
+```
+
+After doing that, from the root, run `docker-compose up --build`.
