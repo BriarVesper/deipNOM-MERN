@@ -3,8 +3,10 @@ let mongoose = require('mongoose');
 let cors = require('cors');
 let database = require('./database/db');
 let createError = require('http-errors');
+require('dotenv').config();
 
 let recipeRoute = require('./routes/recipe.routes');
+let imageRoute = require('./routes/image.routes');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(database.db, { useNewUrlParser: true, useFindAndModify: false })
@@ -22,6 +24,7 @@ app.use(cors());
 app.use(express.static('assets'));
 
 app.use('/recipes', recipeRoute);
+app.use('/image', imageRoute);
 
 let port = 8081;
 app.listen(port, () => {

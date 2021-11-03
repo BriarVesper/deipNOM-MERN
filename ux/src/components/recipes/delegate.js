@@ -30,22 +30,21 @@ const recipeDelegate = {
   },
   /**
    * Upload thumbnail to Cloudinary to get the URL
-   * @param {File} file The image uploaded by the user
+   * @param {Blob} blob The image uploaded by the user
    */
-     uploadThumbnail: async (file) => {
-      let fd = new FormData();
-      fd.append("file", file);
-      fd.append("upload_preset", "deipnon");
-      fd.append("cloud_name", "au-octavii");
-      return fetch("https://api.cloudinary.com/v1_1/au-octavii/upload", {
-        method: "post",
-        body: fd
-      })
-      .then(res => res.json())
-      .then(data => {
-        return data.url;
-      })
-      .catch(err => console.log());
+     uploadThumbnail: async (blob) => {
+        function blobToBase64(blob) {
+          return new Promise((resolve, _) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result);
+            reader.readAsDataURL(blob);
+          });
+        }
+
+      let b64blob = await blobToBase64(blob);
+      return axios.post('http://localhost:8081/image/upload', {'blob': b64blob})
+        .then(res => { return res.data; })
+        .catch(err => console.log(err))
     },
   /**
    * Deletion of Recipe item
