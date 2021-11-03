@@ -32,20 +32,24 @@ const recipeDelegate = {
    * Upload thumbnail to Cloudinary to get the URL
    * @param {Blob} blob The image uploaded by the user
    */
-     uploadThumbnail: async (blob) => {
-        function blobToBase64(blob) {
-          return new Promise((resolve, _) => {
-            const reader = new FileReader();
-            reader.onloadend = () => resolve(reader.result);
-            reader.readAsDataURL(blob);
-          });
-        }
+  uploadThumbnail: async (blob) => {
+    function blobToBase64(blob) {
+      return new Promise((resolve, _) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.readAsDataURL(blob);
+      });
+    }
 
-      let b64blob = await blobToBase64(blob);
-      return axios.post('http://localhost:8081/image/upload', {'blob': b64blob})
-        .then(res => { return res.data; })
-        .catch(err => console.log(err))
-    },
+    let b64blob = await blobToBase64(blob);
+    return axios.post('http://localhost:8081/image/upload', {
+        'blob': b64blob
+      })
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => console.log(err))
+  },
   /**
    * Deletion of Recipe item
    * @param {String} id The id of the item to delete
