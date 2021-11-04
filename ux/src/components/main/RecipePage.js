@@ -86,8 +86,14 @@ function RecipePage() {
     handleSetIsOpen(!isOpen);
   }
 
-  const handleEditRecipe = (data) => {
+  const handleEditRecipe = async (data) => {
     let updatedRecipe = data.updatedRecipe;
+    let thumbnail = data.thumbnail;
+
+    if (thumbnail) {
+      let imageURL = await fetchImageURL(thumbnail);
+      updatedRecipe.image = imageURL;
+    }
 
     delegate.edit({
       recipe: updatedRecipe

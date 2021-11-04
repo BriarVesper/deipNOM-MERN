@@ -3,7 +3,7 @@ import axios from 'axios';
 const recipeDelegate = {
 
   /**
-   * @returns {Object} List of ToDo items
+   * @returns {Object} List of recipe items
    */
   getAllRecipes: () => {
     return axios.get('http://localhost:8081/recipes', {
