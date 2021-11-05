@@ -2,6 +2,10 @@
 
 #recipe-page {
   @extend .panel;
+
+  @media (max-width: $mobile-width) {
+    width: 90%;
+  }
 }
 
 #add-recipe {
@@ -9,6 +13,12 @@
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 15px;
+
+    @media (max-width: $mobile-width) {
+      .small-inputs {
+        margin-left: 10px;
+      }
+    }
   }
 
   .add-recipe-btm-container {
@@ -56,6 +66,10 @@
       width: 300px;
       border-bottom: 2px solid map-get($colors, active);
       display: inline-block;
+
+      @media (max-width: $mobile-width) {
+        width: 90%;
+      }
     }
 
     &.big-input {
