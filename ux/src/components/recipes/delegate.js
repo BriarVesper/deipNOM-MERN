@@ -1,4 +1,5 @@
 import axios from 'axios';
+const BACKEND = process.env.REACT_APP_HOST_IP;
 
 const recipeDelegate = {
 
@@ -6,7 +7,7 @@ const recipeDelegate = {
    * @returns {Object} List of recipe items
    */
   getAllRecipes: () => {
-    return axios.get('http://localhost:8081/recipes', {
+    return axios.get(BACKEND + '/recipes', {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -21,7 +22,7 @@ const recipeDelegate = {
    * @param {function} errback Error handler
    */
   submit: (recipe, callback, errback) => {
-    axios.post('http://localhost:8081/recipes/create', recipe)
+    axios.post(BACKEND + '/recipes/create', recipe)
       .then((res) => {
         callback && callback(res);
       }).catch((error) => {
@@ -42,7 +43,7 @@ const recipeDelegate = {
     }
 
     let b64blob = await blobToBase64(blob);
-    return axios.post('http://localhost:8081/image/upload', {
+    return axios.post(BACKEND + '/image/upload', {
         'blob': b64blob
       })
       .then(res => {
@@ -57,7 +58,7 @@ const recipeDelegate = {
    * @param {function} errback Error handler
    */
   remove: (id, callback, errback) => {
-    axios.delete('http://localhost:8081/recipes/' + id)
+    axios.delete(BACKEND + '/recipes/' + id)
       .then((res) => {
         callback && callback(res);
       }).catch((error) => {
@@ -71,7 +72,7 @@ const recipeDelegate = {
    * @param {function} errback Error handler
    */
    edit: (recipe, callback, errback) => {
-    axios.post('http://localhost:8081/recipes/edit', recipe)
+    axios.post(BACKEND + '/recipes/edit', recipe)
       .then((res) => {
         callback && callback(res);
       }).catch((error) => {

@@ -17,12 +17,12 @@ deipNOM is a simple, one-page app divided into two sections: Recipes and Shoppin
     - Allow the user to remove recipes from the list
 
 #### Running locally
-In order to run deipNOM locally, you will require `docker` as well as a Cloudinary account. You also have to create an `.env` file. From the srv directory:
+In order to run deipNOM locally, you will require `docker` as well as a Cloudinary account. You also have to create and fill in both `.env` files:
 
 ```
-$ cp .default.env .env
-$ nano .env
-Fill in the variables with your Cloudinary credentials
+$ cp srv/.default.env srv/.env
+$ cp ux/.default.env ux/.env
+srv/.env should be populated with your Cloudinary credentials, and ux/.env should be populated with your host machine's IP.
 ```
 
 After doing that, from the root, run `docker-compose up --build`.
