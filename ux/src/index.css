@@ -17,3 +17,14 @@ textarea {
 * {
   box-sizing: border-box;
 }
+
+/*Prevent Chrome bug with excess scrolling*/
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow: auto;
+}
