@@ -1,11 +1,15 @@
 @import './common.scss';
 
-#recipe-page {
+#recipe-page, #top-recipe-list {
   @extend .panel;
 
   @media (max-width: $mobile-width) {
     width: 90%;
   }
+}
+
+#top-recipe-list {
+  width: 90%;
 }
 
 #add-recipe {
@@ -74,6 +78,7 @@
 
     &.big-input {
       width: 100%;
+      height: 100px;
       resize: none;
       border: 1px solid map-get($colors, active);
       padding: 10px;
@@ -81,15 +86,18 @@
   }
 }
 
-#recipe-list {
+#recipe-list {  
   .list {
     @include custom-scroll-bar;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-
-    max-height: 200px;
     overflow: auto;
+    height: 500px;
+
+    @media (max-width: $mobile-width) {
+      height: 350px;
+    }
 
     .recipe-item {
       display: flex;
