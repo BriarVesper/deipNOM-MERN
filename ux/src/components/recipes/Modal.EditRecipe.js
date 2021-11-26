@@ -72,7 +72,7 @@ function EditRecipeModal({ isOpen: parentIsOpen = false, handleSetIsOpen, recipe
   const [description, descriptionInput] = SmallInput({ placeholder: recipeToEdit.description || "description" });
   const [source, sourceInput] = SmallInput({ placeholder: recipeToEdit.source || "source" });
   const [ing, ingInput] = BigInput({ placeholder: "ingredients" });
-  const [instructions, instructionsInput] = BigInput({ placeholder: recipeToEdit.instructions || "instructins" });
+  const [instructions, instructionsInput] = BigInput({ placeholder: recipeToEdit.instructions || "instructions" });
 
   return (
     <div>

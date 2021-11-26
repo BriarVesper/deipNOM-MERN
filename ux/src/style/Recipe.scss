@@ -78,6 +78,7 @@
 
     &.big-input {
       width: 100%;
+      height: 100px;
       resize: none;
       border: 1px solid map-get($colors, active);
       padding: 10px;
