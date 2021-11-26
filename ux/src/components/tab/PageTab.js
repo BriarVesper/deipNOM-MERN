@@ -9,15 +9,21 @@ const PageTab = () => {
     <div id="page-tab">
       <Tab
         id="recipe-tab"
-        name="Recipes"
+        name="Add Recipe"
         index="0"
         active={selectedPage === 0}
+      />
+      <Tab
+        id="add-recipe-tab"
+        name="Recipe List"
+        index="1"
+        active={selectedPage === 1}
       />
       <Tab
         id="shopping-tab"
         name="Shopping List"
         index="1"
-        active={selectedPage === 1}
+        active={selectedPage === 2}
       />
     </div>
   );

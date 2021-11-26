@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FadeIn from 'react-fade-in';
+import AddRecipePage from './AddRecipePage';
 import RecipePage from './RecipePage';
 import ShoppingPage from './ShoppingPage';
 import PageTab from '../tab/PageTab';
@@ -35,14 +36,19 @@ function MainView() {
         <div id="main-heading">
           deipNOM
         </div>
-        {selectedPage === 1 && 
-          <PageContext.Provider value={{ selectedRecipes, handleRemoveSelectedRecipe }}>
-            <ShoppingPage/>
-          </PageContext.Provider>
-        }
         {selectedPage === 0 && 
           <PageContext.Provider value={{handleSelectedRecipe }}>
+            <AddRecipePage/>
+          </PageContext.Provider>
+        }
+        {selectedPage === 1 && 
+          <PageContext.Provider value={{handleSelectedRecipe }}>
             <RecipePage/>
+          </PageContext.Provider>
+        }
+        {selectedPage === 2 && 
+          <PageContext.Provider value={{ selectedRecipes, handleRemoveSelectedRecipe }}>
+            <ShoppingPage/>
           </PageContext.Provider>
         }
       </FadeIn>

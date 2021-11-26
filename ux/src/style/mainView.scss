@@ -37,7 +37,7 @@
     transition: 0.2s ease-in-out;
     cursor: pointer;
 
-    &#recipe-tab {
+    &#recipe-tab, &#add-recipe-tab {
       border-right: 1px solid map-get($colors, active);
     }
 
